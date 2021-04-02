@@ -1,0 +1,47 @@
+---------------------------------------|----------|----------|----------|----------|----------------|
+File                                   |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+---------------------------------------|----------|----------|----------|----------|----------------|
+ src\                                  |        0 |      100 |      100 |        0 |                |
+  index.js                             |        0 |      100 |      100 |        0 |              7 |
+ src\components\App\                   |        0 |      100 |        0 |        0 |                |
+  App.component.jsx                    |        0 |      100 |        0 |        0 |              9 |
+  index.js                             |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\Div\             |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\Hamburguer\      |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\HeaderLarge\     |      100 |       50 |      100 |      100 |                |
+  index.jsx                            |      100 |       50 |      100 |      100 |                |
+ src\components\Atoms\HeaderMedium\    |      100 |       50 |      100 |      100 |                |
+  index.jsx                            |      100 |       50 |      100 |      100 |                |
+ src\components\Atoms\Input\           |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\Label\           |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\Layout\          |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\Paragraph\       |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\Pic\             |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\VideoImg\        |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Molecules\NavbarLeft\  |       75 |      100 |       50 |       75 |                |
+  index.jsx                            |       75 |      100 |       50 |       75 |             13 |
+ src\components\Molecules\NavbarRight\ |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Molecules\Toggle\      |    85.71 |        0 |       50 |    85.71 |                |
+  index.jsx                            |    85.71 |        0 |       50 |    85.71 |             56 |
+ src\components\Organisms\Header\      |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Organisms\VideoCard\   |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\components\Templates\VideoList\   |      100 |      100 |      100 |      100 |                |
+  index.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\pages\Home\                       |        0 |      100 |        0 |        0 |                |
+  Home.page.jsx                        |        0 |      100 |        0 |        0 |            7,9 |
+---------------------------------------|----------|----------|----------|----------|----------------|
+All files                              |       90 |       80 |    84.62 |    89.29 |                |
+---------------------------------------|----------|----------|----------|----------|----------------|
+
+Done
