@@ -6,7 +6,7 @@ const VideoListSC = styled.div`
   display: flex;
   flex-flow: wrap;
   flex-direction: ${(props) => (props.direction ? props.direction : 'row')};
-  justify-content: end;
+  justify-content: space-around;
   text-align: ${(props) =>
     props.direction && props.direction === 'column' ? 'right' : 'center'};
 `;
