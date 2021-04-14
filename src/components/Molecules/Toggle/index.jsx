@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { AppContext } from '../../../state/Provider';
 
 const Slider = styled.span`
   position: absolute;
@@ -12,10 +13,10 @@ const Slider = styled.span`
 
   &:before {
     content: '';
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     border-radius: 100%;
-    background-color: #589635;
+    background-color: #e3363d;
     transition: 0.5s;
     position: absolute;
   }
@@ -36,7 +37,7 @@ const ToggleSC = styled.label`
   background-color: #e3e3e3;
   border-radius: 15px;
   transition: 0.4s;
-  margin: 0px 15px;
+  margin: 0px 10px;
   cursor: pointer;
   & ${Input}:checked {
     background-color: #000;
@@ -47,13 +48,28 @@ const ToggleSC = styled.label`
   }
 `;
 
-const Toggle = ({ isChecked = true }) => {
-  const [checked, setChecked] = useState(isChecked);
+const Toggle = () => {
+  const { state, dispatch } = useContext(AppContext);
+  const [isChecked, setIsChecked] = useState(state.theme === 'dark');
+
+  useEffect(() => {
+    dispatch({
+      type: 'SET_THEME',
+      payload: {
+        theme: isChecked ? 'dark' : 'light',
+      },
+    });
+  }, [dispatch, isChecked]);
 
   return (
     <ToggleSC>
-      <Input type="checkbox" defaultChecked={isChecked} />
-      <Slider onClick={() => setChecked(!checked)} />
+      <Input
+        data-testid="toggle"
+        type="checkbox"
+        checked={isChecked}
+        onChange={() => setIsChecked(!isChecked)}
+      />
+      <Slider />
     </ToggleSC>
   );
 };

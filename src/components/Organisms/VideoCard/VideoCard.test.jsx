@@ -10,7 +10,7 @@ describe('Test VideoCard Component', () => {
     expect(heading).toBeInTheDocument();
     expect(heading).toMatchInlineSnapshot(`
       <h3
-        class="sc-dlfnbm JRpAs"
+        class="sc-gsTCUz cddxIF"
       >
         Test Heading
       </h3>

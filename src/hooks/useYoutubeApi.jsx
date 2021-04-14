@@ -9,7 +9,7 @@ const useYoutubeApi = (searchWord) => {
       setIsLoading(true);
       const response = await fetch(
         `https://www.googleapis.com/youtube/v3/search?${new URLSearchParams({
-          maxResults: 20,
+          maxResults: 25,
           part: 'snippet',
           key: process.env.REACT_APP_API_KEY,
           q: searchWord,

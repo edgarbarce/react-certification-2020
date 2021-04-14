@@ -20,6 +20,12 @@ export default function reducer(state, action) {
         searchWord: action.payload.word,
       };
     }
+    case 'SET_THEME': {
+      return {
+        ...state,
+        theme: action.payload.theme,
+      };
+    }
     default:
       throw new Error('Unkown action');
   }

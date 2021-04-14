@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import Div from '../../Atoms/Div';
 import VideoImg from '../../Atoms/VideoImg';
 import HeaderMedium from '../../Atoms/HeaderMedium';
 import Paragraph from '../../Atoms/Paragraph';
@@ -10,14 +9,40 @@ const Card = styled.div`
   display: ${(props) =>
     props.direction && props.direction === 'column' ? 'flex' : 'inline-block'};
   padding: ${(props) =>
-    props.direction && props.direction === 'column' ? '10px' : '2px'};
+    props.direction && props.direction === 'column' ? '4px' : '10px'};
   min-height: ${(props) =>
-    props.direction && props.direction === 'column' ? '100px' : '320px'};
+    props.direction && props.direction === 'column' ? '125px' : '320px'};
   max-height: ${(props) =>
-    props.direction && props.direction === 'column' ? '100px' : '320px'};
-  background-color: white;
+    props.direction && props.direction === 'column' ? '125px' : '320px'};
+  border-radius: ${(props) =>
+    props.direction && props.direction === 'column' ? '5px' : '10px'};
+  box-shadow: 7px 5px 4px 0 rgb(0 0 0 / 28%);
+  background: ${({ theme }) => theme.background};
   margin: 1%;
   cursor: pointer;
+  @media (max-width: 768px) {
+    min-height: ${(props) =>
+      props.direction && props.direction === 'column' ? '155px' : '320px'};
+    max-height: ${(props) =>
+      props.direction && props.direction === 'column' ? '155px' : '320px'};
+  }
+  @media (max-width: 480px) {
+    min-height: ${(props) =>
+      props.direction && props.direction === 'column' ? '100px' : '320px'};
+    max-height: ${(props) =>
+      props.direction && props.direction === 'column' ? '100px' : '320px'};
+  }
+  @media (min-width: 2560px) {
+    min-height: ${(props) =>
+      props.direction && props.direction === 'column' ? '170px' : '320px'};
+    max-height: ${(props) =>
+      props.direction && props.direction === 'column' ? '170px' : '320px'};
+  }
+`;
+
+const DivCard = styled.div`
+  max-width: ${(props) => props.maxWidth};
+  min-width: ${(props) => props.maxWidth};
 `;
 
 function VideoCard({ imgCover, title, description, videoId, direction }) {
@@ -40,14 +65,14 @@ function VideoCard({ imgCover, title, description, videoId, direction }) {
         id={videoId}
         onClick={selectVideo({ title, description, videoId })}
       >
-        <Div maxWidth="40%">
+        <DivCard maxWidth="35%">
           <VideoImg imgCover={imgCover} />
-        </Div>
-        <Div maxWidth="60%">
-          <HeaderMedium fixedHeight="5px" fontWeight="400" textAlign="left">
+        </DivCard>
+        <DivCard maxWidth="65%">
+          <HeaderMedium fontWeight="400" textAlign="left">
             {title}
           </HeaderMedium>
-        </Div>
+        </DivCard>
       </Card>
     ) : (
       <Card
@@ -55,15 +80,15 @@ function VideoCard({ imgCover, title, description, videoId, direction }) {
         id={videoId}
         onClick={selectVideo({ title, description, videoId })}
       >
-        <Div maxWidth="320px">
+        <DivCard maxWidth="320px">
           <VideoImg imgCover={imgCover} />
-        </Div>
-        <Div maxWidth="320px">
-          <HeaderMedium fixedHeight="35px">{title}</HeaderMedium>
-          <Paragraph fixedHeight="40px" margin="12px 0px">
+        </DivCard>
+        <DivCard maxWidth="320px">
+          <HeaderMedium fixedHeight="45px">{title}</HeaderMedium>
+          <Paragraph fixedHeight="45px" margin="12px 0px">
             {description}
           </Paragraph>
-        </Div>
+        </DivCard>
       </Card>
     );
   return content;
