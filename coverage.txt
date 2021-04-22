@@ -1,56 +1,84 @@
-----------------------------------------|----------|----------|----------|----------|----------------|
-File                                    |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
-----------------------------------------|----------|----------|----------|----------|----------------|
- src\                                   |        0 |      100 |      100 |        0 |                |
-  index.js                              |        0 |      100 |      100 |        0 |              6 |
- src\components\App\                    |      100 |      100 |      100 |      100 |                |
-  App.component.jsx                     |      100 |      100 |      100 |      100 |                |
-  index.js                              |      100 |      100 |      100 |      100 |                |
- src\components\Atoms\Hamburguer\       |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Atoms\HeaderLarge\      |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Atoms\HeaderMedium\     |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Atoms\Input\            |    92.31 |       50 |      100 |      100 |                |
-  index.jsx                             |    92.31 |       50 |      100 |      100 |                |
- src\components\Atoms\Label\            |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Atoms\Layout\           |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Atoms\Paragraph\        |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Atoms\Pic\              |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Atoms\VideoImg\         |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Molecules\NavbarLeft\   |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Molecules\NavbarRight\  |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Molecules\Toggle\       |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Organisms\Header\       |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Organisms\VideoCard\    |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Templates\VideoDetails\ |      100 |      100 |      100 |      100 |                |
-  index.jsx                             |      100 |      100 |      100 |      100 |                |
- src\components\Templates\VideoList\    |      100 |    92.31 |      100 |      100 |                |
-  index.jsx                             |      100 |    92.31 |      100 |      100 |                |
- src\components\style\                  |      100 |      100 |      100 |      100 |                |
-  GlobalStyles.jsx                      |      100 |      100 |      100 |      100 |                |
-  Theme.jsx                             |      100 |      100 |      100 |      100 |                |
-  ThemesDefined.jsx                     |      100 |      100 |      100 |      100 |                |
- src\hooks\                             |      100 |      100 |      100 |      100 |                |
-  useYoutubeApi.jsx                     |      100 |      100 |      100 |      100 |                |
- src\pages\Home\                        |      100 |      100 |      100 |      100 |                |
-  Home.page.jsx                         |      100 |      100 |      100 |      100 |                |
- src\state\                             |    90.91 |    85.71 |      100 |    90.91 |                |
-  Provider.jsx                          |      100 |      100 |      100 |      100 |                |
-  Reducer.jsx                           |    83.33 |       80 |      100 |    83.33 |             30 |
-----------------------------------------|----------|----------|----------|----------|----------------|
-All files                               |    97.97 |    95.92 |      100 |    98.59 |                |
-----------------------------------------|----------|----------|----------|----------|----------------|
+-------------------------------------------|----------|----------|----------|----------|----------------|
+File                                       |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+-------------------------------------------|----------|----------|----------|----------|----------------|
+ src\                                      |        0 |      100 |      100 |        0 |                |
+  index.js                                 |        0 |      100 |      100 |        0 |              6 |
+ src\Hooks\                                |    66.28 |    33.33 |    78.57 |    66.28 |                |
+  useFavoriteVideos.js                     |     5.56 |        0 |        0 |     5.56 |... 19,23,24,27 |
+  useFetchVideo.js                         |    83.33 |      100 |      100 |    83.33 |       23,24,25 |
+  useLogin.js                              |       70 |       50 |      100 |       70 |         8,9,12 |
+  useRelatedVideos.js                      |    72.73 |       50 |      100 |    72.73 |... 12,29,30,31 |
+  useYoutubeApi.js                         |      100 |      100 |      100 |      100 |                |
+ src\Pages\Api\                            |      100 |      100 |      100 |      100 |                |
+  login-api.js                             |      100 |      100 |      100 |      100 |                |
+ src\Pages\Favorites\                      |        0 |        0 |        0 |        0 |                |
+  Favorites.page.jsx                       |        0 |        0 |        0 |        0 | 6,7,8,10,11,13 |
+ src\Pages\Home\                           |      100 |      100 |      100 |      100 |                |
+  Home.page.jsx                            |      100 |      100 |      100 |      100 |                |
+ src\Pages\NotFound\                       |    66.67 |      100 |        0 |    66.67 |                |
+  index.jsx                                |    66.67 |      100 |        0 |    66.67 |             19 |
+ src\State\                                |    92.86 |       90 |      100 |    92.86 |                |
+  Provider.jsx                             |      100 |      100 |      100 |      100 |                |
+  Reducer.jsx                              |    88.89 |     87.5 |      100 |    88.89 |             50 |
+ src\Utils\                                |      100 |      100 |      100 |      100 |                |
+  LocalStorageUtils.js                     |      100 |      100 |      100 |      100 |                |
+ src\components\App\                       |      100 |      100 |      100 |      100 |                |
+  App.component.jsx                        |      100 |      100 |      100 |      100 |                |
+  index.js                                 |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\DropMenu\            |    66.67 |      100 |    33.33 |    66.67 |                |
+  index.jsx                                |    66.67 |      100 |    33.33 |    66.67 |    33,34,37,48 |
+ src\components\Atoms\Hamburguer\          |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\HeaderLarge\         |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\HeaderMedium\        |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\Input\               |    93.33 |    66.67 |      100 |      100 |                |
+  index.jsx                                |    93.33 |    66.67 |      100 |      100 |                |
+ src\components\Atoms\Label\               |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\Layout\              |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\Paragraph\           |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\Pic\                 |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Atoms\VideoImg\            |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Molecules\Aside\           |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Molecules\Dropdown\        |    94.44 |    83.33 |    83.33 |    94.12 |                |
+  index.jsx                                |    94.44 |    83.33 |    83.33 |    94.12 |             44 |
+ src\components\Molecules\NavbarLeft\      |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Molecules\NavbarRight\     |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Molecules\Toggle\          |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Organisms\Header\          |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Organisms\LoginModal\      |    48.39 |       25 |    16.67 |    46.67 |                |
+  index.jsx                                |    48.39 |       25 |    16.67 |    46.67 |... 116,132,141 |
+ src\components\Organisms\VideoCard\       |    96.55 |    93.33 |      100 |    96.43 |                |
+  index.jsx                                |    96.55 |    93.33 |      100 |    96.43 |             53 |
+ src\components\Organisms\VideoList\       |      100 |    94.12 |      100 |      100 |                |
+  index.jsx                                |      100 |    94.12 |      100 |      100 |                |
+ src\components\Organisms\VideoPlayer\     |    54.84 |    83.33 |       50 |    57.14 |                |
+  index.jsx                                |    54.84 |    83.33 |       50 |    57.14 |... 80,86,92,93 |
+ src\components\Routes\                    |       25 |        0 |        0 |       25 |                |
+  PrivateRoute.jsx                         |       25 |        0 |        0 |       25 |         6,7,11 |
+ src\components\Style\                     |      100 |      100 |      100 |      100 |                |
+  GlobalStyles.jsx                         |      100 |      100 |      100 |      100 |                |
+  Theme.jsx                                |      100 |      100 |      100 |      100 |                |
+  ThemesDefined.jsx                        |      100 |      100 |      100 |      100 |                |
+ src\components\Templates\FavoriteDetails\ |        0 |      100 |        0 |        0 |                |
+  index.jsx                                |        0 |      100 |        0 |        0 |    6,7,9,10,13 |
+ src\components\Templates\SearchMode\      |      100 |       50 |      100 |      100 |                |
+  index.jsx                                |      100 |       50 |      100 |      100 |                |
+ src\components\Templates\VideoDetails\    |      100 |    66.67 |      100 |      100 |                |
+  index.jsx                                |      100 |    66.67 |      100 |      100 |                |
+-------------------------------------------|----------|----------|----------|----------|----------------|
+All files                                  |    78.33 |     83.1 |     81.9 |    78.44 |                |
+-------------------------------------------|----------|----------|----------|----------|----------------|
 
 Done

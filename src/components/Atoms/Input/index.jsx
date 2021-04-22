@@ -49,12 +49,12 @@ function Input(props) {
 
   return (
     <InputStyle
-      placeholder={props.placeholder}
-      type={props.type}
-      onKeyDown={searchVideo}
       name={props.name}
+      type={props.type}
+      placeholder={props.placeholder}
+      value={textValue || ''}
+      onKeyDown={searchVideo}
       onChange={handleChange}
-      value={textValue}
     />
   );
 }

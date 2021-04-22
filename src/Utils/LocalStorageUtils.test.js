@@ -50,7 +50,7 @@ describe('deleteFavoriteVideo', () => {
     const favorites = deleteFavoriteVideo('456456');
     expect(favorites.length).toEqual(1);
   });
-  it('should return empty array because local storage var is null', () => {
+  it('should return empty array because local storage is null', () => {
     // eslint-disable-next-line no-proto
     window.localStorage.__proto__.getItem = jest.fn(() => null);
     const favorites = deleteFavoriteVideo('456456');

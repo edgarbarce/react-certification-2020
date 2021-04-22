@@ -52,4 +52,12 @@ describe('Test App', () => {
     });
     expect(searchModeTitle).toBeInTheDocument();
   });
+  it('dropdown from the avatar should provided log in option', async () => {
+    await act(async () => {
+      render(<App />);
+    });
+    const picProfile = screen.getByRole('img', { name: /Profile/i });
+    fireEvent.mouseOver(picProfile);
+    expect(screen.getByText('Log In')).toBeInTheDocument();
+  });
 });

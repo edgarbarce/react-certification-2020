@@ -9,7 +9,7 @@ const NavBarLeftSC = styled.div`
   align-items: center;
 `;
 
-function NavbarLeft(props) {
+function NavbarLeft() {
   const [visible, setVisible] = useState(false);
   const toggleAside = () => {
     setVisible(!visible);
@@ -19,7 +19,7 @@ function NavbarLeft(props) {
     <NavBarLeftSC>
       <Hamburguer visible={visible} toggleAside={toggleAside} />
       <Aside visible={visible} toggleAside={toggleAside} />
-      <Input type="text" onKeyDown={props.onKeyDown} />
+      <Input type="text" name="SearchBar" />
     </NavBarLeftSC>
   );
 }
