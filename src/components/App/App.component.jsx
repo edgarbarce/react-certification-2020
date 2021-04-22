@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import AppProvider from '../../State/Provider';
 import HomePage from '../../Pages/Home/Home.page';
 import Header from '../Organisms/Header/index';
 import Layout from '../Atoms/Layout/index';
-import AppProvider from '../../State/Provider';
 import Theme from '../Style/Theme';
 import VideoDetails from '../Templates/VideoDetails';
 import PrivateRoute from '../Routes/PrivateRoute';
