@@ -24,6 +24,7 @@ describe('Test Header Component', () => {
     expect(checkbox).toMatchInlineSnapshot(`
       <input
         class="sc-eCssSg cOQNoX"
+        data-testid="toggle"
         type="checkbox"
       />
     `);

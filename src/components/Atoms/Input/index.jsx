@@ -25,6 +25,7 @@ function Input(props) {
   const { state, dispatch } = useContext(AppContext);
   const searchVideo = (event) => {
     if (event.key === 'Enter') {
+      if (event.target.value === '') return;
       dispatch({
         type: 'SET_SEARCH_WORD',
         payload: {

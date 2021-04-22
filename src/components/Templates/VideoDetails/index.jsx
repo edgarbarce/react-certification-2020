@@ -49,7 +49,7 @@ function VideoDetails({ children, videoProps }) {
         <IframePlayer
           id="player"
           type="text/html"
-          title="asd"
+          title={videoProps.title}
           src={`https://youtube.com/embed/${videoProps.videoId}?autoplay=0`}
         />
         <InfoWrapperSC>

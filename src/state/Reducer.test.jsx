@@ -4,6 +4,7 @@ const initState = {
   searchMode: true,
   searchWord: 'Wizeline',
   propsSelectedVideo: {},
+  theme: 'light',
 };
 
 describe('Test all actions in reducer', () => {
@@ -16,6 +17,7 @@ describe('Test all actions in reducer', () => {
     };
     const newState = reducer(initState, action);
     expect(newState.searchMode).toEqual(false);
+    expect(newState.theme).toEqual('light');
   });
   it('test SET_SEARCH_WORD action', () => {
     const action = {
@@ -28,6 +30,7 @@ describe('Test all actions in reducer', () => {
     const newState = reducer(initState, action);
     expect(newState.searchWord).toEqual('test');
     expect(newState.searchMode).toEqual(true);
+    expect(newState.theme).toEqual('light');
   });
   it('test SET_VIDEO_PROPS action', () => {
     const action = {
@@ -47,5 +50,18 @@ describe('Test all actions in reducer', () => {
     expect(newState.propsSelectedVideo.title).toEqual('titleTest');
     expect(newState.propsSelectedVideo.description).toEqual('description test');
     expect(newState.propsSelectedVideo.videoId).toEqual('asd123');
+    expect(newState.theme).toEqual('light');
+  });
+  it('test SET_THEME action', () => {
+    const action = {
+      type: 'SET_THEME',
+      payload: {
+        theme: 'dark',
+      },
+    };
+    const newState = reducer(initState, action);
+    expect(newState.searchWord).toEqual('Wizeline');
+    expect(newState.searchMode).toEqual(true);
+    expect(newState.theme).toEqual('dark');
   });
 });

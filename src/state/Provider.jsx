@@ -5,6 +5,7 @@ const initState = {
   searchMode: true,
   searchWord: 'Wizeline',
   propsSelectedVideo: {},
+  theme: 'light',
 };
 
 const AppContext = createContext(initState);

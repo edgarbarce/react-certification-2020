@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeaderLargeSC = styled.h1`
-  color: #000;
   max-height: ${(props) => props.fixedHeight};
   margin: ${(props) => props.margin || '10px 5px'};
   text-align: ${(props) => props.textAlign || 'center'};

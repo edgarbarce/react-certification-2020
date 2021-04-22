@@ -4,7 +4,7 @@ import AppProvider from '../../../state/Provider';
 
 import Input from './index';
 
-describe('Test Layout Component', () => {
+describe('Test Input Component', () => {
   it('The attribute is correct', () => {
     render(
       <AppProvider>
