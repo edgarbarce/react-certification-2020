@@ -1,15 +1,27 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import AppProvider from '../../../state/Provider';
+
 import Input from './index';
 
 describe('Test Layout Component', () => {
   it('The attribute is correct', () => {
     render(
-      <Input placeholder="Placeholder Test" name="InputTest" type="text" value="hola" />
+      <AppProvider>
+        <Input placeholder="Placeholder Test" name="InputTest" type="text" />
+      </AppProvider>
     );
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'placeholder',
       'Placeholder Test'
     );
+  });
+  it('renders the value searchWord from the provider and it is updated correctly', () => {
+    render(
+      <AppProvider>
+        <Input placeholder="Placeholder Test" name="InputTest" type="text" />
+      </AppProvider>
+    );
+    expect(screen.getByRole('textbox')).toHaveValue('Wizeline');
   });
 });

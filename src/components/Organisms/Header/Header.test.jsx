@@ -1,10 +1,15 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import AppProvider from '../../../state/Provider';
 import Header from './index';
 
 describe('Test Header Component', () => {
   it('renders correctly and matches snapshot', () => {
-    render(<Header />);
+    render(
+      <AppProvider>
+        <Header />
+      </AppProvider>
+    );
     const checkbox = screen.getByRole('checkbox');
 
     expect(screen.getByRole('img', { name: /Menu Icon/i })).toHaveAttribute(

@@ -9,11 +9,11 @@ describe('Test VideoCard Component', () => {
 
     expect(heading).toBeInTheDocument();
     expect(heading).toMatchInlineSnapshot(`
-      <h4
-        class="sc-dlfnbm iGzhYW"
+      <h3
+        class="sc-dlfnbm JRpAs"
       >
         Test Heading
-      </h4>
+      </h3>
     `);
   });
 });

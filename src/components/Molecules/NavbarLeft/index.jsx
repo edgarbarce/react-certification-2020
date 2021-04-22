@@ -8,16 +8,11 @@ const NavBarLeftSC = styled.div`
   align-items: center;
 `;
 
-const handleChange = (event) => {
-  // TODO
-  console.log(event);
-};
-
-function NavbarLeft() {
+function NavbarLeft(props) {
   return (
     <NavBarLeftSC>
       <Hamburguer />
-      <Input type="text" onchange={handleChange} />
+      <Input type="text" onKeyDown={props.onKeyDown} />
     </NavBarLeftSC>
   );
 }
