@@ -26,6 +26,26 @@ export default function reducer(state, action) {
         theme: action.payload.theme,
       };
     }
+    case 'SET_USER_LOGGED_IN': {
+      return {
+        ...state,
+        isUserLoggedIn: action.payload.isUserLoggedIn,
+      };
+    }
+    case 'SET_USER_LOGGED_OUT': {
+      return {
+        ...state,
+        isUserLoggedIn: false,
+        searchMode: true,
+        favoriteVideos: {},
+      };
+    }
+    case 'SET_FAVORITE_VIDEOS': {
+      return {
+        ...state,
+        favoriteVideos: action.payload.favoriteVideos,
+      };
+    }
     default:
       throw new Error('Unkown action');
   }

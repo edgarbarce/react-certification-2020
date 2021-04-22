@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import AppProvider from '../../../state/Provider';
+import AppProvider from '../../../State/Provider';
 import Header from './index';
 
 describe('Test Header Component', () => {
@@ -23,7 +23,7 @@ describe('Test Header Component', () => {
     expect(checkbox.checked).toEqual(false);
     expect(checkbox).toMatchInlineSnapshot(`
       <input
-        class="sc-eCssSg cOQNoX"
+        class="sc-fubCfw bAbcvJ"
         data-testid="toggle"
         type="checkbox"
       />

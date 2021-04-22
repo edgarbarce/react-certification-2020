@@ -6,6 +6,7 @@ export const appThemes = {
     background: '#FFF',
     navbar: '#00aebf',
     colorParagraph: '#000',
+    aside: '#e3363d',
   },
   dark: {
     body: '#060606',
@@ -14,5 +15,6 @@ export const appThemes = {
     background: '#000',
     navbar: '#101010',
     colorParagraph: '#FFF',
+    aside: '#101010',
   },
 };

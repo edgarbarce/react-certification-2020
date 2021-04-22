@@ -32,10 +32,11 @@ describe('Test App', () => {
     expect(listVideos.length).toBe(24);
 
     // Select the first video and go to view mode
-    fireEvent.click(listVideos[0]);
+    await act(async () => {
+      fireEvent.click(listVideos[0]);
+    });
     const heading = screen.getByRole('heading', {
       name: /Video Tour | Welcome to Wizeline Guadalajara/i,
-      level: 1,
     });
     expect(heading).toBeInTheDocument();
 

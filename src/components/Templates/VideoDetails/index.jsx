@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeaderLarge from '../../Atoms/HeaderLarge';
-import Paragraph from '../../Atoms/Paragraph';
+import { useParams } from 'react-router';
+import VideoPlayer from '../../Organisms/VideoPlayer';
+import VideoList from '../../Organisms/VideoList';
+import useRelatedVideos from '../../../Hooks/useRelatedVideos';
+import useFetchVideo from '../../../Hooks/useFetchVideo';
 
 const VideoDetailSC = styled.div`
   display: flex;
@@ -9,11 +12,6 @@ const VideoDetailSC = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
-`;
-
-const PlayerWrapperSC = styled.div`
-  display: inline;
-  flex: 8;
 `;
 
 const RelatedVideosSC = styled.div`
@@ -28,40 +26,26 @@ const RelatedVideosSC = styled.div`
   }
 `;
 
-const InfoWrapperSC = styled.div`
-  padding: 10px;
-  margin-top: -20px;
-`;
-
-const IframePlayer = styled.iframe`
-  width: 100%;
-  height: 65%;
-  padding: 15px;
-  border: none;
-  @media (max-width: 768px) {
-    height: 38vh;
-  }
-`;
-function VideoDetails({ children, videoProps }) {
+function VideoDetails({ favVideos, type = 'Home' }) {
+  const { id } = useParams();
+  const { singleVideo, videoIsLoading, error } = useFetchVideo(id);
+  const { relatedVideos, relatedVideosLoading, relatedVideosError } = useRelatedVideos(
+    id,
+    favVideos,
+    type
+  );
+  const videos = type === 'Favorites' ? relatedVideos : relatedVideos?.items;
   return (
     <VideoDetailSC>
-      <PlayerWrapperSC>
-        <IframePlayer
-          id="player"
-          type="text/html"
-          title={videoProps.title}
-          src={`https://youtube.com/embed/${videoProps.videoId}?autoplay=0`}
+      <VideoPlayer snippet={singleVideo} isLoading={videoIsLoading} hasError={error} />
+      <RelatedVideosSC>
+        <VideoList
+          videos={videos}
+          isLoading={relatedVideosLoading}
+          hasError={relatedVideosError}
+          direction="column"
         />
-        <InfoWrapperSC>
-          <HeaderLarge textAlign="left" margin="0px 5px">
-            {videoProps.title}
-          </HeaderLarge>
-          <Paragraph textAlign="left" fontSize="14px" margin="0px 5px">
-            {videoProps.description}
-          </Paragraph>
-        </InfoWrapperSC>
-      </PlayerWrapperSC>
-      <RelatedVideosSC>{children}</RelatedVideosSC>
+      </RelatedVideosSC>
     </VideoDetailSC>
   );
 }

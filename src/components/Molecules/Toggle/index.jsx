@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { AppContext } from '../../../state/Provider';
+import { AppContext } from '../../../State/Provider';
 
 const Slider = styled.span`
   position: absolute;

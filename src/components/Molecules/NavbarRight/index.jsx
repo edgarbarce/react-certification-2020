@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Toggle from '../Toggle';
-import Pic from '../../Atoms/Pic';
 import Label from '../../Atoms/Label';
+import Dropdown from '../Dropdown';
 
 const NavBarRightSC = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ function NavBarRight() {
     <NavBarRightSC>
       <Toggle isChecked={false} />
       <Label>Dark Mode</Label>
-      <Pic />
+      <Dropdown />
     </NavBarRightSC>
   );
 }

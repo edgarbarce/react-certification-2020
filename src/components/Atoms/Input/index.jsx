@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { AppContext } from '../../../state/Provider';
+import { AppContext } from '../../../State/Provider';
 
 const InputStyle = styled.input`
   color: white;
@@ -21,6 +22,7 @@ const InputStyle = styled.input`
 `;
 
 function Input(props) {
+  const history = useHistory();
   const [textValue, setTextValue] = useState('');
   const { state, dispatch } = useContext(AppContext);
   const searchVideo = (event) => {
@@ -33,6 +35,7 @@ function Input(props) {
           word: event.target.value,
         },
       });
+      history.push('/');
     }
   };
 

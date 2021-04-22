@@ -1,12 +1,10 @@
-import React, { useContext, useRef } from 'react';
-import HeaderLarge from '../../components/Atoms/HeaderLarge';
-import VideoList from '../../components/Templates/VideoList/index';
+import React, { useContext } from 'react';
 import VideoDetails from '../../components/Templates/VideoDetails/index';
-import { AppContext } from '../../state/Provider';
-import useYoutubeApi from '../../hooks/useYoutubeApi';
+import { AppContext } from '../../State/Provider';
+import useYoutubeApi from '../../Hooks/useYoutubeApi';
+import SearchMode from '../../components/Templates/SearchMode';
 
 function HomePage() {
-  const sectionRef = useRef(null);
   const { state } = useContext(AppContext);
   const { videos, isLoading, error } = useYoutubeApi(state.searchWord);
 
@@ -17,18 +15,9 @@ function HomePage() {
     return <p>Loading...</p>;
   }
   if (!state.searchMode) {
-    return (
-      <VideoDetails videoProps={state.propsSelectedVideo}>
-        <VideoList list={videos} direction="column" />
-      </VideoDetails>
-    );
+    return <VideoDetails videos={videos} videoProps={state.propsSelectedVideo} />;
   }
-  return (
-    <section className="homepage" ref={sectionRef}>
-      <HeaderLarge>Video List</HeaderLarge>
-      <VideoList list={videos} />
-    </section>
-  );
+  return <SearchMode title="Video List" videos={videos} type="Home" />;
 }
 
 export default HomePage;
