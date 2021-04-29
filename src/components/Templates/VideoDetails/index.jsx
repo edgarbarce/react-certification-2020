@@ -5,6 +5,9 @@ import VideoPlayer from '../../Organisms/VideoPlayer';
 import VideoList from '../../Organisms/VideoList';
 import useRelatedVideos from '../../../Hooks/useRelatedVideos';
 import useFetchVideo from '../../../Hooks/useFetchVideo';
+import WithLayoutComponentLoading from '../../../Helpers/WithComponentLoading';
+
+const VideoPlayerWithLayoutComponentLoading = WithLayoutComponentLoading(VideoPlayer);
 
 const VideoDetailSC = styled.div`
   display: flex;
@@ -37,13 +40,18 @@ function VideoDetails({ favVideos, type = 'Home' }) {
   const videos = type === 'Favorites' ? relatedVideos : relatedVideos?.items;
   return (
     <VideoDetailSC>
-      <VideoPlayer snippet={singleVideo} isLoading={videoIsLoading} hasError={error} />
+      <VideoPlayerWithLayoutComponentLoading
+        isLoading={videoIsLoading}
+        hasError={error}
+        snippet={singleVideo}
+      />
       <RelatedVideosSC>
         <VideoList
           videos={videos}
           isLoading={relatedVideosLoading}
           hasError={relatedVideosError}
           direction="column"
+          type={type}
         />
       </RelatedVideosSC>
     </VideoDetailSC>

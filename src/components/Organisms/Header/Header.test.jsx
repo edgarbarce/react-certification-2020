@@ -35,7 +35,7 @@ describe('Test Header Component', () => {
   });
   it('should display links and correct text when the user is logged in', () => {
     const newState = {
-      isUserLoggedIn: true
+      isUserLoggedIn: true,
     };
     const history = createMemoryHistory();
     history.push('/');
@@ -57,19 +57,18 @@ describe('Test Header Component', () => {
     expect(screen.getByRole('complementary')).toBeInTheDocument();
 
     const favorites = screen.getByRole('link', {
-      name: "Favorites",
+      name: 'Favorites',
     });
     const home = screen.getByRole('link', {
-      name: "Home",
+      name: 'Home',
     });
-  
+
     expect(favorites).toBeInTheDocument();
     expect(home).toBeInTheDocument();
-
   });
   it('should hide favorites when user is not logged in', () => {
     const newState = {
-      isUserLoggedIn: false
+      isUserLoggedIn: false,
     };
     const history = createMemoryHistory();
     history.push('/');
@@ -91,14 +90,14 @@ describe('Test Header Component', () => {
     expect(screen.getByRole('complementary')).toBeInTheDocument();
 
     const home = screen.getByRole('link', {
-      name: "Home",
+      name: 'Home',
     });
-  
-    expect(screen.queryByRole('link', {
-      name: "Favorites",
-    })).not.toBeInTheDocument();
-    expect(home).toBeInTheDocument();
 
+    expect(
+      screen.queryByRole('link', {
+        name: 'Favorites',
+      })
+    ).not.toBeInTheDocument();
+    expect(home).toBeInTheDocument();
   });
-  
 });

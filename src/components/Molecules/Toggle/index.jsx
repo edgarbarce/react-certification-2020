@@ -59,6 +59,7 @@ const Toggle = () => {
         theme: isChecked ? 'dark' : 'light',
       },
     });
+    localStorage.setItem('USER-THEME', JSON.stringify(isChecked ? 'dark' : 'light'));
   }, [dispatch, isChecked]);
 
   return (

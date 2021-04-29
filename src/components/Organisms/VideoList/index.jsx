@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Paragraph from '../../Atoms/Paragraph';
 import VideoCard from '../VideoCard/index';
 
 const VideoListSC = styled.div`
@@ -12,15 +13,16 @@ const VideoListSC = styled.div`
 `;
 
 const EmptyListSC = styled.div`
-  width: 80%;
+  width: 100%;
   background: #e3363d;
-  color: white;
+  border-radius: 15px;
+  margin-top: 15px;
 `;
 
 function VideoList({ videos, direction, type }) {
   const legend =
     type === 'Favorites'
-      ? 'You haven not added any video as favorite yet'
+      ? 'You have not added any video as favorite yet'
       : 'No Videos match the search';
   return (
     <VideoListSC direction={direction}>
@@ -43,7 +45,7 @@ function VideoList({ videos, direction, type }) {
         })}
       {(!videos || videos?.length === 0) && (
         <EmptyListSC>
-          <p>{legend}</p>
+          <Paragraph>{legend}</Paragraph>
         </EmptyListSC>
       )}
     </VideoListSC>

@@ -10,6 +10,7 @@ const Content = styled.div`
   left: -72px;
   text-align: center;
   z-index: 1;
+  border-radius: 15px;
 `;
 
 const ListUl = styled.ul`

@@ -1,12 +1,12 @@
 import React, { createContext, useReducer } from 'react';
 import reducer from './Reducer';
-import { getFavoriteVideos } from '../Utils/LocalStorageUtils';
+import { getFavoriteVideos, getTheme } from '../Utils/LocalStorageUtils';
 
 const initState = {
   searchMode: true,
   searchWord: 'Wizeline',
   propsSelectedVideo: {},
-  theme: 'light',
+  theme: getTheme(),
   isUserLoggedIn: !!localStorage.getItem('USER'),
   favoriteVideos: getFavoriteVideos(),
 };

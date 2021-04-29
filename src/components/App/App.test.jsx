@@ -3,8 +3,15 @@ import { render, screen, fireEvent, act } from '@testing-library/react';
 import App from './index';
 import * as videos from '../../data/youtube-videos-mock.json';
 
+const v = JSON.stringify('light');
+// eslint-disable-next-line no-proto
+jest.spyOn(window.localStorage.__proto__, 'getItem');
+
 describe('Test App', () => {
-  it('Enable the dark mode and then go back to the ligth mode', () => {
+  it('Enable the dark mode and then go back to the light mode', () => {
+    // eslint-disable-next-line no-proto
+    window.localStorage.__proto__.getItem = jest.fn(() => v);
+
     render(<App />);
     const toggle = screen.getByRole('checkbox');
     fireEvent.click(toggle);

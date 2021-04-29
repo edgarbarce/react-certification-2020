@@ -12,6 +12,20 @@ export const getFavoriteVideos = () => {
   }
 };
 
+export const getTheme = () => {
+  try {
+    const localTheme = localStorage.getItem('USER-THEME');
+    if (localTheme != null) {
+      const contentLocalStorage = JSON.parse(localTheme);
+      return contentLocalStorage;
+    }
+    return 'light';
+  } catch (e) {
+    console.log(e);
+    return 'light';
+  }
+};
+
 export const deleteFavoriteVideo = (id) => {
   const localVideos = localStorage.getItem('USER-VIDEOS');
   if (localVideos !== null) {
@@ -24,4 +38,22 @@ export const deleteFavoriteVideo = (id) => {
     return newFavorites;
   }
   return [];
+};
+
+export const parseVideo = (videoId, title, description, img) => {
+  return {
+    id: {
+      videoId,
+      kind: 'youtube#video',
+    },
+    snippet: {
+      title,
+      description,
+      thumbnails: {
+        medium: {
+          url: img,
+        },
+      },
+    },
+  };
 };

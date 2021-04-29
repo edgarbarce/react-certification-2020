@@ -128,15 +128,18 @@ function LoginModal({ modalOpen, onClose }) {
             <FormInput
               required
               type="text"
+              name="user"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />
           </FormDivGroup>
           <FormDivGroup>
-            <FormLabel>Password</FormLabel>
+            <FormLabel htmlFor="password">Password</FormLabel>
             <FormInput
               required
+              id="password"
               type="password"
+              name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

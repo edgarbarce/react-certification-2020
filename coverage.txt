@@ -3,16 +3,19 @@ File                                       |  % Stmts | % Branch |  % Funcs |  %
 -------------------------------------------|----------|----------|----------|----------|----------------|
  src\                                      |        0 |      100 |      100 |        0 |                |
   index.js                                 |        0 |      100 |      100 |        0 |              6 |
- src\Hooks\                                |    66.28 |    33.33 |    78.57 |    66.28 |                |
-  useFavoriteVideos.js                     |     5.56 |        0 |        0 |     5.56 |... 19,23,24,27 |
+ src\Helpers\                              |      100 |      100 |      100 |      100 |                |
+  WithComponentLoading.jsx                 |      100 |      100 |      100 |      100 |                |
+ src\Hooks\                                |       83 |     62.5 |      100 |    82.83 |                |
+  useFavoriteVideos.js                     |    78.95 |       50 |      100 |    78.95 |    17,21,22,23 |
   useFetchVideo.js                         |    83.33 |      100 |      100 |    83.33 |       23,24,25 |
-  useLogin.js                              |       70 |       50 |      100 |       70 |         8,9,12 |
+  useIsVideoFavorite.js                    |    76.92 |       50 |      100 |       75 |       11,14,15 |
+  useLogin.js                              |       90 |      100 |      100 |       90 |             12 |
   useRelatedVideos.js                      |    72.73 |       50 |      100 |    72.73 |... 12,29,30,31 |
   useYoutubeApi.js                         |      100 |      100 |      100 |      100 |                |
  src\Pages\Api\                            |      100 |      100 |      100 |      100 |                |
   login-api.js                             |      100 |      100 |      100 |      100 |                |
- src\Pages\Favorites\                      |        0 |        0 |        0 |        0 |                |
-  Favorites.page.jsx                       |        0 |        0 |        0 |        0 | 6,7,8,10,11,13 |
+ src\Pages\Favorites\                      |      100 |      100 |      100 |      100 |                |
+  Favorites.page.jsx                       |      100 |      100 |      100 |      100 |                |
  src\Pages\Home\                           |      100 |      100 |      100 |      100 |                |
   Home.page.jsx                            |      100 |      100 |      100 |      100 |                |
  src\Pages\NotFound\                       |    66.67 |      100 |        0 |    66.67 |                |
@@ -20,13 +23,15 @@ File                                       |  % Stmts | % Branch |  % Funcs |  %
  src\State\                                |    92.86 |       90 |      100 |    92.86 |                |
   Provider.jsx                             |      100 |      100 |      100 |      100 |                |
   Reducer.jsx                              |    88.89 |     87.5 |      100 |    88.89 |             50 |
- src\Utils\                                |      100 |      100 |      100 |      100 |                |
-  LocalStorageUtils.js                     |      100 |      100 |      100 |      100 |                |
+ src\Utils\                                |    86.67 |    83.33 |      100 |    86.21 |                |
+  LocalStorageUtils.js                     |    86.67 |    83.33 |      100 |    86.21 |    19,20,24,25 |
  src\components\App\                       |      100 |      100 |      100 |      100 |                |
   App.component.jsx                        |      100 |      100 |      100 |      100 |                |
   index.js                                 |      100 |      100 |      100 |      100 |                |
  src\components\Atoms\DropMenu\            |    66.67 |      100 |    33.33 |    66.67 |                |
-  index.jsx                                |    66.67 |      100 |    33.33 |    66.67 |    33,34,37,48 |
+  index.jsx                                |    66.67 |      100 |    33.33 |    66.67 |    34,35,38,49 |
+ src\components\Atoms\FavButton\           |    73.68 |      100 |       60 |    73.68 |                |
+  index.jsx                                |    73.68 |      100 |       60 |    73.68 | 55,56,57,63,69 |
  src\components\Atoms\Hamburguer\          |      100 |      100 |      100 |      100 |                |
   index.jsx                                |      100 |      100 |      100 |      100 |                |
  src\components\Atoms\HeaderLarge\         |      100 |      100 |      100 |      100 |                |
@@ -57,28 +62,28 @@ File                                       |  % Stmts | % Branch |  % Funcs |  %
   index.jsx                                |      100 |      100 |      100 |      100 |                |
  src\components\Organisms\Header\          |      100 |      100 |      100 |      100 |                |
   index.jsx                                |      100 |      100 |      100 |      100 |                |
- src\components\Organisms\LoginModal\      |    48.39 |       25 |    16.67 |    46.67 |                |
-  index.jsx                                |    48.39 |       25 |    16.67 |    46.67 |... 116,132,141 |
- src\components\Organisms\VideoCard\       |    96.55 |    93.33 |      100 |    96.43 |                |
-  index.jsx                                |    96.55 |    93.33 |      100 |    96.43 |             53 |
- src\components\Organisms\VideoList\       |      100 |    94.12 |      100 |      100 |                |
-  index.jsx                                |      100 |    94.12 |      100 |      100 |                |
- src\components\Organisms\VideoPlayer\     |    54.84 |    83.33 |       50 |    57.14 |                |
-  index.jsx                                |    54.84 |    83.33 |       50 |    57.14 |... 80,86,92,93 |
- src\components\Routes\                    |       25 |        0 |        0 |       25 |                |
-  PrivateRoute.jsx                         |       25 |        0 |        0 |       25 |         6,7,11 |
+ src\components\Organisms\LoginModal\      |    96.77 |      100 |    83.33 |    96.67 |                |
+  index.jsx                                |    96.77 |      100 |    83.33 |    96.67 |            116 |
+ src\components\Organisms\VideoCard\       |    94.87 |    74.14 |    95.45 |    94.74 |                |
+  index.jsx                                |    94.87 |    74.14 |    95.45 |    94.74 |          74,90 |
+ src\components\Organisms\VideoList\       |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
+ src\components\Organisms\VideoPlayer\     |      100 |       50 |      100 |      100 |                |
+  index.jsx                                |      100 |       50 |      100 |      100 |                |
+ src\components\Routes\                    |      100 |       50 |      100 |      100 |                |
+  PrivateRoute.jsx                         |      100 |       50 |      100 |      100 |                |
  src\components\Style\                     |      100 |      100 |      100 |      100 |                |
   GlobalStyles.jsx                         |      100 |      100 |      100 |      100 |                |
   Theme.jsx                                |      100 |      100 |      100 |      100 |                |
   ThemesDefined.jsx                        |      100 |      100 |      100 |      100 |                |
  src\components\Templates\FavoriteDetails\ |        0 |      100 |        0 |        0 |                |
   index.jsx                                |        0 |      100 |        0 |        0 |    6,7,9,10,13 |
- src\components\Templates\SearchMode\      |      100 |       50 |      100 |      100 |                |
-  index.jsx                                |      100 |       50 |      100 |      100 |                |
+ src\components\Templates\SearchMode\      |      100 |      100 |      100 |      100 |                |
+  index.jsx                                |      100 |      100 |      100 |      100 |                |
  src\components\Templates\VideoDetails\    |      100 |    66.67 |      100 |      100 |                |
   index.jsx                                |      100 |    66.67 |      100 |      100 |                |
 -------------------------------------------|----------|----------|----------|----------|----------------|
-All files                                  |    78.33 |     83.1 |     81.9 |    78.44 |                |
+All files                                  |    89.66 |    81.82 |    92.13 |    89.66 |                |
 -------------------------------------------|----------|----------|----------|----------|----------------|
 
 Done

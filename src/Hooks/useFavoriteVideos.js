@@ -1,16 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useContext } from 'react';
+import { AppContext } from '../State/Provider';
 
 const useFavoriteVideos = () => {
   const [videos, setVideos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const fetchVideos = () => {
+  const { state } = useContext(AppContext);
+
+  const fetchVideos = useCallback(() => {
     try {
       setIsLoading(true);
-      const userString = localStorage.getItem('USER-VIDEOS');
-      if (userString != null) {
-        const favorites = JSON.parse(userString);
-        setVideos(favorites.favoriteVideos);
+      if (state.favoriteVideos != null) {
+        console.log(state.favoriteVideos);
+        setVideos(state.favoriteVideos);
+      } else {
+        setVideos([]);
       }
       setIsLoading(false);
     } catch (e) {
@@ -18,11 +22,11 @@ const useFavoriteVideos = () => {
       setError(true);
       setIsLoading(false);
     }
-  };
+  }, [state.favoriteVideos]);
 
   useEffect(() => {
     fetchVideos();
-  }, []);
+  }, [fetchVideos]);
 
   return { videos, isLoading, error };
 };
