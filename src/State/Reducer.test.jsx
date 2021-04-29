@@ -83,7 +83,7 @@ describe('Test all actions in reducer', () => {
     initState.isUserLoggedIn = true;
     initState.searchMode = false;
     const newState = reducer(initState, action);
-    expect(newState.favoriteVideos).toEqual({});
+    expect(newState.favoriteVideos).toEqual([]);
     expect(newState.isUserLoggedIn).toEqual(false);
     expect(newState.searchMode).toEqual(true);
   });

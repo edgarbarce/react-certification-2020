@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-// import * as videoss from '../data/youtube-videos-mock.json';
 
 const useYoutubeApi = (searchWord) => {
   const [videos, setVideos] = useState([]);
@@ -18,7 +17,6 @@ const useYoutubeApi = (searchWord) => {
       )}`;
       const response = await fetch(searchURL);
       const data = await response.json();
-      // console.log(videoss.default);
       setVideos(data);
       setIsLoading(false);
     } catch (e) {

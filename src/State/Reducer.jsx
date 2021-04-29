@@ -30,6 +30,7 @@ export default function reducer(state, action) {
       return {
         ...state,
         isUserLoggedIn: action.payload.isUserLoggedIn,
+        favoriteVideos: action.payload.favoriteVideos,
       };
     }
     case 'SET_USER_LOGGED_OUT': {
@@ -37,7 +38,7 @@ export default function reducer(state, action) {
         ...state,
         isUserLoggedIn: false,
         searchMode: true,
-        favoriteVideos: {},
+        favoriteVideos: [],
       };
     }
     case 'SET_FAVORITE_VIDEOS': {

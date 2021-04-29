@@ -11,7 +11,6 @@ const useFavoriteVideos = () => {
     try {
       setIsLoading(true);
       if (state.favoriteVideos != null) {
-        console.log(state.favoriteVideos);
         setVideos(state.favoriteVideos);
       } else {
         setVideos([]);

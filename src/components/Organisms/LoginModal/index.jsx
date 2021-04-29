@@ -92,11 +92,15 @@ function LoginModal({ modalOpen, onClose }) {
     try {
       const dataUser = await loginApi(userName, password);
       localStorage.setItem('USER', JSON.stringify(dataUser));
+      const localVideos = localStorage.getItem('USER-VIDEOS');
+      const favorites =
+        localVideos !== null ? JSON.parse(localVideos).favoriteVideos : [];
       onClose(!modalOpen);
       dispatch({
         type: 'SET_USER_LOGGED_IN',
         payload: {
           isUserLoggedIn: true,
+          favoriteVideos: favorites,
         },
       });
     } catch (e) {
