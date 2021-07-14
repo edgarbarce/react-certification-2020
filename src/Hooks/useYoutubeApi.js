@@ -7,14 +7,15 @@ const useYoutubeApi = (searchWord) => {
   const fetchVideos = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?${new URLSearchParams({
+      const searchURL = `https://www.googleapis.com/youtube/v3/search?${new URLSearchParams(
+        {
           maxResults: 25,
           part: 'snippet',
           key: process.env.REACT_APP_API_KEY,
           q: searchWord,
-        })}`
-      );
+        }
+      )}`;
+      const response = await fetch(searchURL);
       const data = await response.json();
       setVideos(data);
       setIsLoading(false);

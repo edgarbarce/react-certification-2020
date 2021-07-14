@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './GlobalStyles';
-import { AppContext } from '../../state/Provider';
+import { AppContext } from '../../State/Provider';
 import { appThemes } from './ThemesDefined';
 
 const Theme = ({ children }) => {

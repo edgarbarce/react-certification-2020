@@ -5,8 +5,11 @@ const ImgMenuBtn = styled.img`
   color: black;
   filter: invert(1);
   margin: 0px 15px;
+  cursor: pointer;
 `;
 
-const Hamburguer = () => <ImgMenuBtn src="/menu.svg" alt="Menu Icon" />;
+const Hamburguer = ({ toggleAside }) => (
+  <ImgMenuBtn onClick={toggleAside} src="/menu.svg" alt="Menu Icon" />
+);
 
 export default Hamburguer;

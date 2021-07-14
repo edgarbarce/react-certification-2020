@@ -1,52 +1,66 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useHistory, useLocation } from 'react-router-dom';
 import VideoImg from '../../Atoms/VideoImg';
 import HeaderMedium from '../../Atoms/HeaderMedium';
 import Paragraph from '../../Atoms/Paragraph';
-import { AppContext } from '../../../state/Provider';
+import { AppContext } from '../../../State/Provider';
+import FavButton from '../../Atoms/FavButton';
+import useIsVideoFavorite from '../../../Hooks/useIsVideoFavorite';
 
 const Card = styled.div`
-  display: ${(props) =>
-    props.direction && props.direction === 'column' ? 'flex' : 'inline-block'};
-  padding: ${(props) =>
-    props.direction && props.direction === 'column' ? '4px' : '10px'};
-  min-height: ${(props) =>
-    props.direction && props.direction === 'column' ? '125px' : '320px'};
-  max-height: ${(props) =>
-    props.direction && props.direction === 'column' ? '125px' : '320px'};
-  border-radius: ${(props) =>
-    props.direction && props.direction === 'column' ? '5px' : '10px'};
-  box-shadow: 7px 5px 4px 0 rgb(0 0 0 / 28%);
+  display: ${(props) => (props?.direction === 'column' ? 'flex' : 'inline-block')};
+  padding: ${(props) => (props.direction === 'column' ? '4px' : '10px')};
+  min-height: ${(props) => (props?.direction === 'column' ? '125px' : '320px')};
+  max-height: ${(props) => (props?.direction === 'column' ? '125px' : '320px')};
+  border-radius: ${(props) => (props?.direction === 'column' ? '5px' : '10px')};
   background: ${({ theme }) => theme.background};
+  box-shadow: 7px 5px 4px 0 rgb(0 0 0 / 28%);
   margin: 1%;
   cursor: pointer;
+
   @media (max-width: 768px) {
-    min-height: ${(props) =>
-      props.direction && props.direction === 'column' ? '155px' : '320px'};
-    max-height: ${(props) =>
-      props.direction && props.direction === 'column' ? '155px' : '320px'};
+    min-height: ${(props) => (props?.direction === 'column' ? '155px' : '320px')};
+    max-height: ${(props) => (props?.direction === 'column' ? '155px' : '320px')};
   }
   @media (max-width: 480px) {
-    min-height: ${(props) =>
-      props.direction && props.direction === 'column' ? '100px' : '320px'};
-    max-height: ${(props) =>
-      props.direction && props.direction === 'column' ? '100px' : '320px'};
+    min-height: ${(props) => (props?.direction === 'column' ? '100px' : '320px')};
+    max-height: ${(props) => (props?.direction === 'column' ? '100px' : '320px')};
   }
   @media (min-width: 2560px) {
-    min-height: ${(props) =>
-      props.direction && props.direction === 'column' ? '170px' : '320px'};
-    max-height: ${(props) =>
-      props.direction && props.direction === 'column' ? '170px' : '320px'};
+    min-height: ${(props) => (props?.direction === 'column' ? '170px' : '320px')};
+    max-height: ${(props) => (props?.direction === 'column' ? '170px' : '320px')};
   }
 `;
 
 const DivCard = styled.div`
   max-width: ${(props) => props.maxWidth};
   min-width: ${(props) => props.maxWidth};
+  display: block;
+`;
+
+const DivColumnBtnHolderSC = styled.div`
+  margin-top: 60px;
+  margin-left: 5px;
+  float: left;
 `;
 
 function VideoCard({ imgCover, title, description, videoId, direction }) {
-  const { dispatch } = useContext(AppContext);
+  const history = useHistory();
+  const location = useLocation();
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const { state, dispatch } = useContext(AppContext);
+  const { isVideoFavorite } = useIsVideoFavorite(videoId, state.favoriteVideos);
+
+  useEffect(() => {
+    setIsFavorite(isVideoFavorite);
+  }, [isFavorite, isVideoFavorite]);
+
+  useEffect(() => {
+    setLoggedIn(state.isUserLoggedIn);
+  }, [state.isUserLoggedIn]);
 
   const selectVideo = (params) => () => {
     dispatch({
@@ -56,42 +70,69 @@ function VideoCard({ imgCover, title, description, videoId, direction }) {
         videoProps: params,
       },
     });
+    if (location.pathname.includes('Favorites')) {
+      history.push(`/Favorites/${params.videoId}`);
+    } else {
+      history.push(`/video/${params.videoId}`);
+    }
   };
 
-  const content =
-    direction && direction === 'column' ? (
-      <Card
-        direction={direction}
-        id={videoId}
-        onClick={selectVideo({ title, description, videoId })}
-      >
-        <DivCard maxWidth="35%">
-          <VideoImg imgCover={imgCover} />
-        </DivCard>
-        <DivCard maxWidth="65%">
-          <HeaderMedium fontWeight="400" textAlign="left">
+  const trim = (content) => {
+    return content.length > 170 ? `${content.substring(0, 170)}...` : content;
+  };
+
+  return (
+    <Card
+      direction={direction}
+      id={videoId}
+      onClick={selectVideo({ title, description, videoId })}
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+    >
+      <DivCard maxWidth={direction === 'column' ? '35%' : '320px'}>
+        <VideoImg imgCover={imgCover} />
+      </DivCard>
+      {isVisible && direction !== 'column' && (
+        <FavButton
+          isFavorite={isFavorite}
+          isUserLoggedIn={loggedIn}
+          setIsFavorite={setIsFavorite}
+          title={title ?? ''}
+          description={description ?? ''}
+          videoId={videoId ?? ''}
+          img={imgCover ?? ''}
+        />
+      )}
+      <DivCard maxWidth={direction === 'column' ? '65%' : '320px'}>
+        <div>
+          <HeaderMedium
+            fixedHeight={direction === 'column' ? '100px' : '45px'}
+            textAlign={direction === 'column' ? 'left' : 'center'}
+          >
             {title}
           </HeaderMedium>
-        </DivCard>
-      </Card>
-    ) : (
-      <Card
-        direction={direction}
-        id={videoId}
-        onClick={selectVideo({ title, description, videoId })}
-      >
-        <DivCard maxWidth="320px">
-          <VideoImg imgCover={imgCover} />
-        </DivCard>
-        <DivCard maxWidth="320px">
-          <HeaderMedium fixedHeight="45px">{title}</HeaderMedium>
-          <Paragraph fixedHeight="45px" margin="12px 0px">
-            {description}
-          </Paragraph>
-        </DivCard>
-      </Card>
-    );
-  return content;
+          {direction !== 'column' && (
+            <Paragraph fixedHeight="45px" margin="12px 0px">
+              {trim(description)}
+            </Paragraph>
+          )}
+        </div>
+        {isVisible && direction === 'column' && (
+          <DivColumnBtnHolderSC>
+            <FavButton
+              isFavorite={isFavorite}
+              isUserLoggedIn={loggedIn}
+              setIsFavorite={setIsFavorite}
+              title={title ?? ''}
+              description={description ?? ''}
+              videoId={videoId ?? ''}
+              img={imgCover ?? ''}
+            />
+          </DivColumnBtnHolderSC>
+        )}
+      </DivCard>
+    </Card>
+  );
 }
 
 export default VideoCard;

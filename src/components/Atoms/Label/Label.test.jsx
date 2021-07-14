@@ -6,10 +6,10 @@ describe('Test Label Component', () => {
   it('renders correct content', () => {
     render(
       <div>
-        <Label for="mockInput">Test Content</Label>
+        <Label htmlFor="mockInput">Test Content</Label>
         <input id="mockInput" type="text" />
       </div>
     );
-    expect(screen.getByLabelText(/^Test Content$/)).toBeInTheDocument();
+    expect(screen.getByText(/Test Content/i)).toBeInTheDocument();
   });
 });

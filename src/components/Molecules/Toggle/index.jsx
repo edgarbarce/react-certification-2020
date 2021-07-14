@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { AppContext } from '../../../state/Provider';
+import { AppContext } from '../../../State/Provider';
 
 const Slider = styled.span`
   position: absolute;
@@ -59,6 +59,7 @@ const Toggle = () => {
         theme: isChecked ? 'dark' : 'light',
       },
     });
+    localStorage.setItem('USER-THEME', JSON.stringify(isChecked ? 'dark' : 'light'));
   }, [dispatch, isChecked]);
 
   return (

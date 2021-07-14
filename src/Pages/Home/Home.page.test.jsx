@@ -1,12 +1,16 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
-import AppProvider from '../../state/Provider';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import AppProvider from '../../State/Provider';
 import Home from './Home.page';
-import * as useYoutubeApi from '../../hooks/useYoutubeApi';
+import * as useYoutubeApi from '../../Hooks/useYoutubeApi';
 import * as videos from '../../data/youtube-videos-mock.json';
 
 describe('Test the main Home functionality', () => {
   it('the videos are shown correctly', () => {
+    const history = createMemoryHistory();
+    history.push('/');
     const spy = jest.spyOn(useYoutubeApi, 'default');
     spy.mockReturnValue({
       videos,
@@ -16,35 +20,13 @@ describe('Test the main Home functionality', () => {
 
     render(
       <AppProvider>
-        <Home />
+        <Router history={history}>
+          <Home />
+        </Router>
       </AppProvider>
     );
     const videosView = screen.getByText(/Video List/i);
     expect(videosView).toBeInTheDocument();
-  });
-  it('the video player is rendered correctly', () => {
-    const spy = jest.spyOn(useYoutubeApi, 'default');
-    spy.mockReturnValue({
-      videos,
-      isLoading: false,
-      error: false,
-    });
-    const newState = {
-      searchMode: false,
-      searchWord: 'test',
-      propsSelectedVideo: {
-        title: 'Video Title',
-        description: 'Description of the video',
-      },
-    };
-    render(
-      <AppProvider providedState={newState}>
-        <Home />
-      </AppProvider>
-    );
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/^Video Title/);
-    const videoDescription = screen.getByText(/Description of the video/i);
-    expect(videoDescription).toBeInTheDocument();
   });
   it('the videos are loading', () => {
     const spy = jest.spyOn(useYoutubeApi, 'default');

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import AppProvider from '../../../state/Provider';
+import AppProvider from '../../../State/Provider';
 import NavbarLeft from './index';
 
 describe('Test NavbarLeft Component', () => {
